@@ -1,0 +1,198 @@
+{
+	"info": {
+		"_postman_id": "98ce5428-15af-49e8-8927-f9d5f340fe5f",
+		"name": "Passing Postman collection",
+		"description": "Makes four requests to HTTPBin (httpbin.org) and tests Newman",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET with URL Params",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d38bb128-ec6f-4c6d-ae49-798e888fb1e1",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response contains params\", function () {",
+							"    let data = pm.response.json();",
+							"    pm.expect(data.args.lol).to.eql(\"true\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "9b8cd1b7-92fa-4c75-940e-fc28d84deb54",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://httpbin.org/get?lol=true",
+					"protocol": "http",
+					"host": [
+						"httpbin",
+						"org"
+					],
+					"path": [
+						"get"
+					],
+					"query": [
+						{
+							"key": "lol",
+							"value": "true"
+						}
+					]
+				},
+				"description": "Simple GET request with URL Parameters"
+			},
+			"response": []
+		},
+		{
+			"name": "POST with JSON body",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Check POST param in response\", function () {",
+							"    let data = pm.response.json();",
+							"    pm.expect(data.json.something).to.eql(\"cool\");",
+							"});"
+						],
+						"id": "3f3188c9-a40a-4405-801a-a15658e86712"
+					}
+				}
+			],
+			"_postman_id": "05403f4b-a3a0-4618-b766-8e76fcf4b8b1",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"something\": \"cool\"\n}",
+					"options": {}
+				},
+				"url": "http://httpbin.org/post"
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"id": "a5f894b9-c7b2-4616-939f-fb0f0654ea4d"
+					}
+				}
+			],
+			"_postman_id": "c57c08e8-2f4a-4241-8a17-6d32adfe5221",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [],
+					"options": {}
+				},
+				"url": "http://httpbin.org/delete"
+			},
+			"response": []
+		},
+		{
+			"name": "PUT with form data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Test form data\", function () {",
+							"    let data = pm.response.json();",
+							"    pm.expect(data.form.quotient).to.eql(\"223\");",
+							"});"
+						],
+						"id": "c12719d9-83dd-4592-9a82-ea43ad9192c1"
+					}
+				}
+			],
+			"_postman_id": "1ccb2bac-76cd-4bb7-b3c8-183d86207095",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "quotient",
+							"value": "223",
+							"type": "text"
+						}
+					],
+					"options": {}
+				},
+				"url": "http://httpbin.org/put"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				],
+				"id": "d7ea0165-86d8-45ce-85c6-83203be0a304"
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				],
+				"id": "124e0814-7312-4d9f-b43d-365a95b0c67a"
+			}
+		}
+	]
+}
