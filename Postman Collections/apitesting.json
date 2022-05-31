@@ -21,13 +21,15 @@
 							"pm.test(\"Response contains params\", function () {",
 							"    let data = pm.response.json();",
 							"    pm.expect(data.args.lol).to.eql(\"true\");",
-							"});"
+							"});",
+							"",
+							"postman.setNextRequest(\"Put with form data\")"
 						],
 						"type": "text/javascript"
 					}
 				}
 			],
-			"_postman_id": "9b8cd1b7-92fa-4c75-940e-fc28d84deb54",
+			"id": "9b8cd1b7-92fa-4c75-940e-fc28d84deb54",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -76,7 +78,7 @@
 					}
 				}
 			],
-			"_postman_id": "05403f4b-a3a0-4618-b766-8e76fcf4b8b1",
+			"id": "05403f4b-a3a0-4618-b766-8e76fcf4b8b1",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -90,8 +92,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"something\": \"cool\"\n}",
-					"options": {}
+					"raw": "{\n    \"something\": \"cool\"\n}"
 				},
 				"url": "http://httpbin.org/post"
 			},
@@ -113,7 +114,7 @@
 					}
 				}
 			],
-			"_postman_id": "c57c08e8-2f4a-4241-8a17-6d32adfe5221",
+			"id": "c57c08e8-2f4a-4241-8a17-6d32adfe5221",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -122,8 +123,7 @@
 				"header": [],
 				"body": {
 					"mode": "formdata",
-					"formdata": [],
-					"options": {}
+					"formdata": []
 				},
 				"url": "http://httpbin.org/delete"
 			},
@@ -150,7 +150,7 @@
 					}
 				}
 			],
-			"_postman_id": "1ccb2bac-76cd-4bb7-b3c8-183d86207095",
+			"id": "1ccb2bac-76cd-4bb7-b3c8-183d86207095",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -165,8 +165,7 @@
 							"value": "223",
 							"type": "text"
 						}
-					],
-					"options": {}
+					]
 				},
 				"url": "http://httpbin.org/put"
 			},
