@@ -63,7 +63,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"type": "text/javascript",
+						"id": "3f3188c9-a40a-4405-801a-a15658e86712",
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {",
 							"    pm.response.to.have.status(200);",
@@ -72,9 +72,11 @@
 							"pm.test(\"Check POST param in response\", function () {",
 							"    let data = pm.response.json();",
 							"    pm.expect(data.json.something).to.eql(\"cool\");",
-							"});"
+							"});",
+							"",
+							"postman.setNextRequest(null)"
 						],
-						"id": "3f3188c9-a40a-4405-801a-a15658e86712"
+						"type": "text/javascript"
 					}
 				}
 			],
