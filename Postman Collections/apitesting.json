@@ -23,7 +23,7 @@
 							"    pm.expect(data.args.lol).to.eql(\"true\");",
 							"});",
 							"",
-							"postman.setNextRequest(\"Put with form data\")"
+							"postman.setNextRequest(\"PUT with form data\")"
 						],
 						"type": "text/javascript"
 					}
