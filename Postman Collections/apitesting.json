@@ -135,7 +135,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"type": "text/javascript",
+						"id": "c12719d9-83dd-4592-9a82-ea43ad9192c1",
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {",
 							"    pm.response.to.have.status(200);",
@@ -144,9 +144,11 @@
 							"pm.test(\"Test form data\", function () {",
 							"    let data = pm.response.json();",
 							"    pm.expect(data.form.quotient).to.eql(\"223\");",
-							"});"
+							"});",
+							"",
+							"postman.setNextRequest(\"POST with JSON body\");"
 						],
-						"id": "c12719d9-83dd-4592-9a82-ea43ad9192c1"
+						"type": "text/javascript"
 					}
 				}
 			],
